@@ -1,0 +1,30 @@
+body{
+  background-image: url('./style_assets/subtle_dots.png');
+}
+
+@font-face {
+    font-family: BourgeoisBold;
+    src: url(./Bourgeois-Med.otf);
+}
+.bourgeois{
+	 font-family: BourgeoisBold;
+}
+
+img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+.grid {
+  margin: 0 auto;
+}
+
+.grid-item {
+  width: 312px;
+  margin-bottom:-4px;
+}
+
+.grid-item--width2 {
+  width: 100%;
+    margin-top:0px;
+}

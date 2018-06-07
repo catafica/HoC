@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <div class="container">
+      <h6>ADMIN DATA</h6>
+      <button type="button" id="refresh_data" class="btn black">refresh data</button>
+      <script>
+        var refreshData = document.getElementById('refresh_data');
+        refreshData.addEventListener('click', (e) => {
+          this.location.href = this.location.href;
+        });
+      </script>
+    </div>
+    <div id="targetDiv"> </div>
+    <script src="/axios.min.js" charset="utf-8"></script>
+    <script>
+      var targetDiv = document.getElementById('targetDiv');
+      axios.get('/api/items').then(function(data) {
+        var displayData = data.data;
+        // console.log(displayData);
+        displayData.reverse().forEach((item, index, arr) => {
+        var thisId = item._id;
+          targetDiv.innerHTML += 
+          `<ul class="collection">
+          <li class="collection-item">` + item.name + ',  completed: ' + item.completed + ', date created: ' +
+          item.date_created + ', client name: ' + item.client_name + ', ' + 'client email: ' + item.client_email  + ', client_phone_number: '+ item.client_phone_number + ', make: ' + item.client_car_make + ', model: ' + 
+          item.client_car_model + ', price min: ' + item.client_price_min + ', price max: ' + item.client_price_max + ', from year: ' + item.client_car_year + ', vehicle km min: ' + item.client_car_km_min + ', ' + 'vehicle km max: '+ item.client_car_km_max + ', ' + 'engine cmc: ' + item.client_car_engine_cmc +
+          ', transmission: ' + item.client_car_transmission + ', doors: ' + item.client_car_no_doors + ', fuel type: ' +item.client_car_fuel_type + '; body style: ' + item.client_car_body_style + '; other_options: '+ item.other_options + `</li>` +`<div class="center">` + 
+          `<button id="`+thisId+`" class="btn uncompleted grey lighten-2 black-text">mark as uncompleted</button>` + 
+          `<button id="`+thisId+`" class="btn completed grey lighten-2 black-text">mark as completed</button>` + 
+          `<button id="`+thisId+`" class="btn delete grey lighten-2 black-text">delete</button>` + 
+          `</div>` + `</ul>`;
+          var uls = document.getElementsByTagName('ul');
+          if (item.completed) {
+            uls[index].classList.toggle('grey-text')
+          };
+        });
+        // end of forEach^
+          var completeBtns = document.getElementsByClassName('completed');
+            var completeArr = Array.from(completeBtns);
+          var deleteBtns = document.getElementsByClassName('delete');
+            var deleteArr = Array.from(deleteBtns);
+          var unCompleteBtns = document.getElementsByClassName('uncompleted');
+            var unCompleteArr = Array.from(unCompleteBtns);
+
+
+            completeArr.forEach((item) => {
+              item.addEventListener('click',(e) => {
+                console.log(item.id);
+                axios({
+                  method: 'put',
+                  url: '/api/items/' + item.id,
+                  data: {
+                    completed: true
+                    }
+                  });
+              this.location.href = this.location.href;
+              });
+            });
+
+            unCompleteArr.forEach((item) => {
+              item.addEventListener('click',(e) => {
+                console.log(item.id);
+                axios({
+                  method: 'put',
+                  url: '/api/items/' + item.id,
+                  data: {
+                    completed: false
+                    }
+                  });
+              this.location.href = this.location.href;
+              });
+            });
+
+            deleteArr.forEach((item) => {
+              item.addEventListener('click',(e) => {
+                console.log(item.id);
+                axios({
+                  method: 'delete',
+                  url: '/api/items/' + item.id
+                  });
+              this.location.href = this.location.href;
+              });
+            });
+      }).catch(function (err) {
+        console.log(err)
+      });
+
+
+
+      function middle (arr, args) {
+        let mid = Math.floor(arr.length/2);
+        arr.splice(mid, mid, args)
+      };
+
+
+
+    </script>
+<!-- 
+// name, completed, date_created, client_name, client_email, client_phone_number, client_car_make, client_car_model, client_price_min, client_price_max, client_car_year, client_car_km_min, client_car_km_max, 
+// client_car_km_max, client_car_engine_cmc, client_car_transmission, client_car_no_doors, client_car_fuel_type,
+
+    -->
+
+
+    <script src="/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script src="/scripts/app.js" charset="utf-8"></script>
+
+  </body>
+  </html>

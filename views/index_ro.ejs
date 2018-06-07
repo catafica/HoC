@@ -1,0 +1,41 @@
+
+<% include ./partials/header_ro.ejs %>
+
+  <% include ./partials/slider_ro.ejs %>
+
+
+    <div class="body_toggler_2">
+      <div class="container">
+        <div class="clearfix" style="height:8em;">
+
+        </div>
+        <div class="progress transparent" style="margin-top:4.2em;">
+          <div class="indeterminate blue-grey darken-2"></div>
+        </div>
+        <div class="clearfix" style="height:40em;">
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var body_toggler = document.getElementsByClassName('body_toggler')[0];
+      var body_toggler_2 = document.getElementsByClassName('body_toggler_2')[0];
+      body_toggler.classList.toggle('hide');
+      setTimeout(function() {
+        body_toggler.classList.toggle('hide');
+        body_toggler_2.classList.toggle('hide');
+      }, 800);
+    </script>
+
+    <% include ./partials/popbutton_ro.ejs %>
+
+    <% include ./partials/about_ro.ejs %>
+
+      <% include ./partials/social_bar_ro.ejs %>
+
+        <% include ./partials/terms.ejs %>
+
+
+
+          <% include ./partials/footer.ejs %>

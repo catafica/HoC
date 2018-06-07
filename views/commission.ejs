@@ -1,0 +1,177 @@
+<% include ./partials/header.ejs %>
+
+  <ul class="collection">
+      <li class="collection-item  grey lighten-2">
+      	<div class="center">
+      	<h3 class="grey-text text-darken-2">Request a car.</h3>
+      	<div class="chip grey lighten-3 grey-text text-darken-1">
+    		Name, email, phone number, car make & model are required.
+  		</div>
+      	</div>
+      </li>
+    </ul>
+
+<div class="clearfix" style="height:1,2em;">
+  
+</div>
+    <div class="container">
+      <div class="center">
+        <h2 class="grey-text text-darken-1 flow-text">
+          In case you don't have a specific car in mind, hit this button: 
+        </h2>
+
+        <div class="clearfix" style="height:1.2em;">
+  
+</div>
+<a href="/contact" title="">
+        <button type="" class="btn btn-large transparent grey-text text-darken-4 z-depth-4 waves-effect">
+          Contact Us
+        </button>
+</a>
+<div class="clearfix" style="height:1.2em;">
+  
+</div>
+  <p class="grey-text text-darken-1 flow-text">
+          Else, please provide:
+        </p>
+      </div>
+    </div>
+
+    <div class="clearfix" style="height:2em;">
+  
+</div>
+
+    <!-- -------------- -->
+    <div class="container">
+    	<form action="/commission_submit" method="POST" accept-charset="utf-8">
+
+			<div class="row">
+        <div class="input-field col s12 m4">
+          <input name="client_name" id="one" type="text" class="validate" required maxlength="30">
+          <label for="one">Your Name</label>
+        </div>
+         <div class="input-field col s12 m4">
+          <input name="client_email" id="two" type="email" class="validate" required maxlength="40">
+          <label for="two">Your Email</label>
+        </div>
+         <div class="input-field col s12 m4">
+          <input name="client_phone_number" id="phone_number" type="number" class="validate" required maxlength="22" max="99999999999999">
+          <label for="phone_number">Phone Number</label>
+        </div>
+      </div>
+
+        <div class="row">
+        <div class="input-field col s12 m6">
+          <input name="client_car_make" id="three" type="text" class="validate" required maxlength="20">
+          <label for="three">Make</label>
+        </div>
+          <div class="input-field col s12 m6">
+          <input name="client_car_model" id="four" type="text" class="validate" required maxlength="20">
+          <label for="four">Model</label>
+        </div>
+      </div>
+
+
+<div class="row">
+
+<!-- price range: -->
+  <div class="row">
+  	     <div class="input-field col s12 m3">
+          <input name="client_price_min" id="five" type="number" class="validate" min="200">
+          <label for="five">Price - min (EUR)</label>
+        </div>
+         <div class="input-field col s12 m3">
+          <input name="client_price_max" id="price_max" type="number" class="validate" max="2000000">
+          <label for="price_max">Price - max (EUR)</label>
+        </div>
+          <div class="input-field col s12 m2">
+          <input name="client_car_year" id="year_" type="number" class="validate" maxlength="4">
+          <label for="year_">Year</label>
+        </div>
+
+                 <div class="input-field col s12 m2">
+          <input name="client_car_km_min" id="km_min" type="number" class="validate" maxlength="9">
+          <label for="km_min">Km(min)</label>
+        </div>
+
+                 <div class="input-field col s12 m2">
+          <input name="client_car_km_max" id="km_max" type="number" class="validate" maxlength="9">
+          <label for="km_max">Km(max)</label>
+        </div>
+  </div>
+
+
+       <div class="row">
+  	     <div class="input-field col s12 m3">
+          <input name="client_car_engine_cmc" id="seven" type="number" class="validate" maxlength="4">
+          <label for="seven">Engine(cmc)</label>
+   </div>
+
+    <div class="input-field col s12 m3">
+	  <select name="client_car_transmission" class="browser-default">
+	    <option value="" disabled selected>Transmission</option>
+	    <option value="Manual">Manual</option>
+	    <option value="Semi-Automatic">Semi-automatic</option>
+	    <option value="3">Automatic</option>
+  </select>
+  </div>
+
+      <div class="input-field col s12 m3">
+	  <select name="client_car_no_doors" class="browser-default">
+	    <option value="" disabled selected>Number of doors</option>
+	    <option value="2">2</option>
+	    <option value="3">3</option>
+	    <option value="4">4</option>
+	    <option value="5">5</option>
+      <option value="Other">Other</option>
+
+  </select>
+  </div>
+
+  	  <div class="input-field col s12 m3">
+    <select name="client_car_fuel_type" class="browser-default">
+      <option value="" disabled selected>Fuel type</option>
+      <option value="Diesel">Diesel</option>
+      <option value="Gasoline">Gasoline</option>
+      <option value="Electric">Electric</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+
+
+</div>
+<!-- ------------ -->
+  <div class="row">
+
+        <div class="input-field col s12 m2">
+                    <input name="client_car_body_style" id="bodystyle" type="text" class="validate" maxlength="20">
+          <label for="bodystyle">Body Style</label>
+</div>
+        <div class="input-field col s12 m10">
+          <textarea name="other_options" id="textarea1" class="materialize-textarea" maxlength="3600"></textarea>
+          <label for="textarea1">Other options</label>
+        </div>
+  </div>
+
+
+  
+
+     
+ 
+
+<!-- ------------ -->
+
+  <div class="center">
+    <button type="submit" class="btn btn-large grey lighten-2 black-text">submit order</button>
+  </div>
+
+    	</form>
+    </div>
+
+
+
+
+
+
+<% include ./partials/footer.ejs %>

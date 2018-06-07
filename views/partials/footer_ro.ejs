@@ -1,0 +1,115 @@
+  <div id="modal1" class="modal transparent">
+    <div class="modal-content">
+      <div class="center">
+        <h4 class="white-text  grey-text text-lighten-2 flow-text">Termeni si Conditii <br><br>
+      <i class="material-icons">warning</i>
+        </h4>
+          <p class="flow-text grey-text text-lighten-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      </div>
+
+    </div>
+    <div class="modal-footer transparent">
+      <div class="center">
+      <a href="#!" class=" grey-text text-lighten-2 modal-close waves-effect waves-green btn-flat white-text">
+      <i class="material-icons">verified_user</i>
+      <button class="btn grey darken-2 z-depth-2 grey-text text-lighten-1" style="font-weight: bolder; margin-top: -6px; margin-left: 1em;">
+      Sunt de acord cu termenii de mai sus.</button>
+      </a>
+
+      </div>
+    </div>
+  </div>
+
+
+
+          <div class="footer-copyright" style="margin-bottom: -6px;">
+
+		    <ul class="collection">
+
+      <li class="collection-item grey lighten-2">
+      	<a href="" class="grey-text text-darken-1">©	 <%= (new Date()).getFullYear() %> Copyright</a>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+       <a class="grey-text text-darken-1" href="#!">Privacy</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+       <a class="grey-text text-darken-1" href="#!">Settings</a>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <a class="right waves-effect waves-light modal-trigger transparent grey-text waves-effect waves-green"
+  href="#modal1"
+style="font-weight: bolder;"
+  >Terms of Use</a>
+
+
+      </li>
+
+    </ul>
+
+
+          </div>
+
+
+<script src="/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="/app.js" charset="utf-8"></script>
+<script src="/masonry.pkgd.min.js"></script>
+<!-- INITIALIZATIONS: -->
+<script>
+
+  $('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 312,
+  fitWidth: true,
+  gutter: 2
+  });
+
+$(document).ready(function(){
+    $('.slider').slider();
+    $('.sidenav').sidenav();
+    $('.modal').modal();
+    $('select').formSelect();
+    var indicator_items = document.getElementsByClassName('indicator-item');
+    var indicator_arr = Array.from(indicator_items);
+    indicator_arr.forEach(function(item){
+      item.classList.toggle('grey');
+      item.classList.toggle('lighten-3');
+    });
+     // M.AutoInit();
+          var toggledButton = document.getElementById('toggled-button');
+            $(window).scroll(function() {
+          var scrollPos = $(window).scrollTop();
+          // console.log(scrollPos);
+          if (scrollPos > 110) {toggledButton.classList.remove('hide')};
+          if (scrollPos < 40) {toggledButton.classList.add('hide')};
+
+
+   // if($(window).scrollTop() + $(window).height() == $(document).height()) {
+   //     alert("bottom!");
+   //     // getData();
+   // }
+
+
+});
+
+    
+// console.log(this.location.href);
+
+
+var englishButton = document.getElementById('english');
+var romanianButton =  document.getElementById('romanian');
+
+console.log(englishButton);
+console.log(romanianButton);
+
+englishButton.addEventListener('click', (e) => {
+  console.log('click en');
+});
+romanianButton.addEventListener('click', (e) => {
+  console.log('click ro');
+});
+
+  });
+
+
+</script>
+</body>
+</html>
