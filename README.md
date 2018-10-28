@@ -1,2 +1,2 @@
 # HouseOfCars
-A car selling platfor
+A car selling platfor using NodeJs and MongoDb
